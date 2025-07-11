@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a;
+  --color-accent: #38bdf8;
+  --color-textbase: #1e293b;
+  --color--cta: #0ea5e9;
+  --font-base: "Inter", sans-serif;
+
+  /* This copies the value of --font-base into --font-heading */
+  --font-heading: @reference font-base;
+}
+/* Applies to raw HTML elements like h1,body, a, etc. */
+
+@layer base {
+  h3 {
+    @apply font-medium;
+  }
+  p {
+    @apply bg-color-red;
+  }
+}
+
+/* Shortcuts for common styles*/
+@layer utilities {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*Build bigger layout*/
+@layer components {
+  .btn {
+    background-color: #0f172a;
+    border-radius: 8px;
+  }
+  /* @Apply that if I want to use TailwindCSS in my custom */
+  .alert {
+    @apply bg-primary rounded-2xl;
+  }
+  .card {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
